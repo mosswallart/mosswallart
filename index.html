@@ -1,61 +1,128 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EUto Co. 홈페이지</title>
+    <title>Mosswall Art Introduction</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; }
         header, footer { background-color: #333; color: white; text-align: center; padding: 1.5em 0; }
         nav { background-color: #444; padding: 1em; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; display: inline-block; }
+        nav a:before { content: "| "; color: #888; }
+        nav a:first-child:before { content: ""; }
         nav a:hover { text-decoration: underline; }
-        section { padding: 2em; }
+        section { padding: 2em; max-width: 800px; margin: auto; }
         h1, h2 { color: #333; }
-        .container { max-width: 1000px; margin: auto; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1em; }
-        .card { background-color: #eee; padding: 1.5em; border-radius: 10px; }
+        .card { background-color: #eee; padding: 1.5em; border-radius: 10px; text-align: center; }
+        .card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 0.5em; }
+        .language-toggle { position: absolute; top: 10px; right: 10px; background-color: #444; color: white; padding: 0.5em; border-radius: 5px; cursor: pointer; }
+        .logo { width: 300px; margin: 0 auto; }
+        .highlight { color: #009688; font-weight: bold; }
+        .contact-info { margin: 1em 0; line-height: 1.5; text-align: center; }
+        .legal-text { margin: 1em 0; line-height: 1.5; text-align: center; font-size: 0.9em; color: #666; }
+        .footer-country { text-align: center; margin-right: 20px; font-size: 0.9em; color: #888; }
+        footer a { color: white; margin: 0 10px; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
     </style>
+    <script>
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'en' ? 'ko' : 'en';
+            document.documentElement.lang = newLang;
+            const languageButton = document.querySelector('.language-toggle');
+            const countryElement = document.getElementById('footer-country');
+            const emailElement = document.getElementById('contact-email');
+
+            if (newLang === 'ko') {
+                languageButton.textContent = 'ENG';
+                countryElement.textContent = 'South Korea';
+                emailElement.textContent = 'Korea@mosswall.art';
+            } else {
+                languageButton.textContent = 'KOR';
+                countryElement.textContent = 'United Kingdom';
+                emailElement.textContent = 'UK@mosswall.art';
+            }
+        }
+    </script>
 </head>
 <body>
+    <div class="language-toggle" onclick="toggleLanguage()">KOR</div>
     <header>
-        <h1>EUto Co.</h1>
-        <p>벽면녹화 전문 기업</p>
+        <img src="images/logo.png" alt="Mosswall Art Logo" class="logo">
+        <p>Inspire your space with the beauty of nature.</p>
     </header>
     <nav>
-        <a href="#about">회사 소개</a>
-        <a href="#services">서비스</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#contact">연락처</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
     </nav>
-    <section id="about" class="container">
-        <h2>회사 소개</h2>
-        <p>EUto Co.는 벽면녹화 솔루션을 제공하는 전문 기업입니다. 자연과 인간이 공존하는 공간을 창조합니다.</p>
+    <section id="about">
+        <h2>About</h2>
+        <p>Mosswall Art brings the beauty of nature indoors with artistic wall greenery installations. Using eco-friendly materials, we enhance air quality and create calming atmospheres.</p>
     </section>
-    <section id="services" class="container">
-        <h2>서비스</h2>
+    <section id="features">
+        <h2>Features</h2>
+        <ul>
+            <li><span class="highlight">Eco-friendly Design:</span> Enhances indoor air quality and humidity regulation</li>
+            <li><span class="highlight">Aesthetic Appeal:</span> Adds a touch of luxury to any space</li>
+            <li><span class="highlight">Customizable:</span> Tailored designs to fit diverse environments</li>
+        </ul>
+    </section>
+    <section id="portfolio">
+        <h2>Portfolio</h2>
         <div class="grid">
             <div class="card">
-                <h3>벽면녹화 설계</h3>
-                <p>자연과 어우러진 벽면녹화 디자인을 제공합니다.</p>
+                <img src="images/office.jpg" alt="Office Wall Greenery">
+                <h3>Office Wall Greenery</h3>
+                <p>Boosts productivity by incorporating nature into workspaces.</p>
             </div>
             <div class="card">
-                <h3>시공 및 유지 관리</h3>
-                <p>전문 시공팀이 직접 관리하며, 사후 유지보수를 책임집니다.</p>
+                <img src="images/commercial.jpg" alt="Commercial Space Design">
+                <h3>Commercial Space Design</h3>
+                <p>Offers a fresh experience with nature-inspired interiors.</p>
+            </div>
+            <div class="card">
+                <img src="images/home.jpg" alt="Residential Decoration">
+                <h3>Residential Decoration</h3>
+                <p>Infuses living areas with a natural touch.</p>
+            </div>
+            <div class="card">
+                <img src="images/cafe.jpg" alt="Cafe Wall Greenery">
+                <h3>Cafe Wall Greenery</h3>
+                <p>Creates a relaxing atmosphere for visitors.</p>
             </div>
         </div>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p class="contact-info" style="font-size: 0.8em; color: #aaa; text-align: center; margin: 1em 0;">
+            152-178 Kingston Road, New Malden, Surrey, London KT3 3ST / UK@mosswall.art
+        </p>
     </section>
-    <section id="projects" class="container">
-        <h2>프로젝트 사례</h2>
-        <p>다양한 공간에서의 벽면녹화 프로젝트를 통해 자연 친화적인 공간을 실현했습니다.</p>
-    </section>
-    <section id="contact" class="container">
-        <h2>연락처</h2>
-        <p>이메일: contact@euto.co.kr</p>
-        <p>전화: 010-1234-5678</p>
-    </section>
+</section>
+    
     <footer>
-        <p>Copyright © 2025 EUto Co. All rights reserved.</p>
+        
+<p class="contact-info" style="font-size: 0.8em; color: #aaa; text-align: center; margin: 1em 0;">
+1. Moss Artworks are crafted with precision and natural materials to enhance aesthetic appeal while preserving the environment.
+Each piece is unique and tailored to fit the space it adorns.<br>
+2. Sustainable Design: Mosswall Art is committed to sustainable practices, using eco-friendly materials and methods to reduce environmental impact while delivering high-quality installations.
+</p>
+
+
+<p>Copyright © 2025 Mosswall Art. All rights reserved.</p>
+        <nav>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="sales.html">Sales and Refunds</a>
+            <a href="legal.html">Legal</a>
+            <a href="sitemap.html">Site Map</a>
+            
+        </nav>
+        
     </footer>
 </body>
 </html>
